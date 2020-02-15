@@ -1,0 +1,21 @@
+.kipa-heading {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  background-color: #eee;
+  padding: 5px 15px;
+  margin: 0 3px;
+  text-align: center;
+}
+
+.kipa-heading:hover {
+  background-color: white;
+}
+
+div.kipa-tab-bar {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 5px 0;
+}

@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+
+    "name": "Tidy up BOJ Stack",
+    "description": "Tidy up BOJ Stack",
+    "version": "1.0",
+
+    "content_scripts": [ {
+        "run_at": "document_end",
+        "js": [ "inject.js" ],
+        "css": [ "inject.css" ],
+        "matches": [ "https://stack.acmicpc.net/problem/list" ]
+    } ]
+}
