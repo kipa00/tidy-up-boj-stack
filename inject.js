@@ -1,13 +1,13 @@
 // Top bar is made in order as of 'order' array
 // Problems are inserted in order as of original order in BOJ Stack
 // Unspecified problems are automatically classified as belonging to 'Unspecified' category
-// Usage Example: if 1000 and 1001 belong to Contest A and 1002 and 1003 belong to Contest B
+// Usage Example: if 1000 and 1008 belong to Contest A and 1002 through 1007 belong to Contest B
 /*
   // If you swap this two, then 'Contest B' will appear earlier than 'Contest A' in top bar
   var order = ['Contest A', 'Contest B'];
   var library = {
-    'Contest A': [1000, 1001],
-    'Contest B': [1002, 1003],
+    'Contest A': [1000, 1008],
+    'Contest B': ['1002-1007'],
   };
 */
 
@@ -46,7 +46,15 @@ for (var ki in order) {
   var key = order[ki];
   tables[key] = new_table();
   for (var i in library[key]) {
-    prob[library[key][i]] = key;
+    if (typeof library[key][i] === 'number') {
+      prob[library[key][i]] = key;
+    } else {
+      var t = library[key][i].split('-');
+      var ed = +t[1];
+      for (var i=+t[0]; i<=ed; ++i) {
+        prob[i] = key;
+      }
+    }
   }
 }
 tables['Unspecified'] = new_table();
