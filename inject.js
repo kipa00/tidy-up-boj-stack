@@ -25,7 +25,7 @@ function new_table() {
   // thead
   var thead = document.createElement('thead');
   var head_list = [
-    '문제 번호', '제목', '시간', '메모리', '서브태스크', '예제', '데이터', '테스트', '공유', '편집', 'BOJ'
+    '문제 번호', '제목', '시간', '메모리', '공유', '폴더', '편집', 'BOJ'
   ];
   for (var i in head_list) {
     var subelem = document.createElement('th');
@@ -61,11 +61,13 @@ tables['Unspecified'] = new_table();
 
 while (subelems.length) {
   var removed = elem.removeChild(subelems[0]);
+  var removed2 = elem.removeChild(subelems[0]);
   var category = prob[+removed.getAttribute('data-problem-id')];
   if (category === undefined) {
     category = 'Unspecified';
   }
   tables[category].getElementsByTagName('tbody')[0].appendChild(removed);
+  tables[category].getElementsByTagName('tbody')[0].appendChild(removed2);
 }
 var push = elem.parentNode.parentNode;
 push.removeChild(elem.parentNode);
